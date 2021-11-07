@@ -48,15 +48,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonDIVISION.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operacion = 1;
                 if(num1 != 0 && num2 != 0){
-                    num1 = num1/num2;
-                    num2 = 0;
+                    operacionPrevia();
                 }else if(num1!=0&&num2==0){
                     num2 = Double.parseDouble(pantalla.getText().toString());
                 }else{
                     num1 = Double.parseDouble(pantalla.getText().toString());
                 }
+                operacion = 1;
                 pantalla.setText("0");
             }
         });
@@ -64,15 +63,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonSUMAR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operacion = 2;
                 if(num1 != 0 && num2 != 0){
-                    num1 = num1+num2;
-                    num2=0;
+                    operacionPrevia();
                 }else if(num1!=0&&num2==0){
                     num2 = Double.parseDouble(pantalla.getText().toString());
                 }else{
                     num1 = Double.parseDouble(pantalla.getText().toString());
                 }
+                operacion = 2;
                 pantalla.setText("0");
             }
         });
@@ -80,15 +78,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonMULTIPLICACION.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operacion = 3;
                 if(num1 != 0 && num2 != 0){
-                    num1 = num1*num2;
-                    num2=0;
+                    operacionPrevia();
                 }else if(num1!=0&&num2==0){
                     num2 = Double.parseDouble(pantalla.getText().toString());
                 }else{
                     num1 = Double.parseDouble(pantalla.getText().toString());
                 }
+                operacion = 3;
                 pantalla.setText("0");
             }
         });
@@ -96,15 +93,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonMENOS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operacion = 4;
                 if(num1 != 0 && num2 != 0){
-                    num1 = num1-num2;
-                    num2=0;
+                    operacionPrevia();
                 }else if(num1!=0&&num2==0){
                     num2 = Double.parseDouble(pantalla.getText().toString());
                 }else{
                     num1 = Double.parseDouble(pantalla.getText().toString());
                 }
+                operacion = 4;
                 pantalla.setText("0");
             }
         });
@@ -173,5 +169,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else{
             num2 = Double.parseDouble(pantalla.getText().toString());
         }
+    }
+    public void operacionPrevia(){
+        double resultado = 0;
+        switch(operacion){
+            case 1:
+                resultado = num1/num2;
+                pantalla.setText(String.valueOf(resultado));
+                break;
+            case 2:
+                resultado = num1+num2;
+                pantalla.setText(String.valueOf(resultado));
+                break;
+            case 3:
+                resultado = num1*num2;
+                pantalla.setText(String.valueOf(resultado));
+                break;
+            case 4:
+                resultado = num1-num2;
+                pantalla.setText(String.valueOf(resultado));
+                break;
+        }
+        num1 = resultado;
+        num2=0;
     }
 }
