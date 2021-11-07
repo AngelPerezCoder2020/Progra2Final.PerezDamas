@@ -12,6 +12,7 @@ public class INFOactivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infoactivity);
+        setTitle("ANGEL DARIO PEREZ DAMAS");
         regresar = findViewById(R.id.regresarButton);
         regresar.setOnClickListener(new View.OnClickListener() {
             @Override
